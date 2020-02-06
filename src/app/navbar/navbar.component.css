@@ -1,0 +1,6 @@
+.navbar {
+   position: fixed;
+}
+.navbar.navbar-fixed-top.navbar-inverse {
+    background-color: transparent;
+}

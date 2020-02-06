@@ -1,0 +1,9 @@
+.nav-logo {
+    display: none;
+    
+}
+
+.nav-inner .nav-logo {
+    display: block;
+}
+
