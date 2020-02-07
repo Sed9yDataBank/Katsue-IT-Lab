@@ -11,7 +11,7 @@
       <h4 class="modal-title" id="myModalLabel">Send</h4>
     </div>
     <div class="modal-body">
-              <form id="connection" [formGroup]="messageForm" (ngSubmit)="onSent()" >
+              <form id="connection" [formGroup]="messageForm" (ngSubmit)="onSent()">
                     <div class="row">
                        <div class="col-sm-6">
                           <div class="form-group">
@@ -44,7 +44,7 @@
                        
                        
            </div>
-           <button type="submit" class="btn btn-primary">Send</button>
+           <button type="submit" (click)="sendData(messageForm)" class="btn btn-primary">Send</button>
               </form>
    
   
