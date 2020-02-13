@@ -1,0 +1,51 @@
+<div class="formPhotos">
+    <form [formGroup]="photosForm">
+        <fieldset> 
+            <legend>Add New Person :</legend>
+            <div class="form-group">
+                <label for="staffFullName">Employee Name</label>
+                <input type="text" formControlName="staffFullName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="staffPosition">Employee Position</label>
+                <input type="text" formControlName="staffPosition" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="image">Employee Photo</label>
+                <input type="file" formControlName="image" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" (click)="sendImage(photosForm)" class="btn btn-primary">POST</button>
+            </div>
+            <!--Add "Employee Created" Or "Error" Using -> *ngIf="" and {{The Message}}-->
+            <div class="form-group">
+                <p></p>
+             </div>
+        </fieldset>
+    </form>
+</div>
+
+<!--Get And Preview All Added Employees From The DataBase-->
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#Id</th>
+        <th scope="col">EmployeeName</th>
+        <th scope="col">EmployeePosition</th>
+        <th scope="col">EmployeePhoto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of Employees; let i = index">
+        <th scope="row"></th>
+        <!--Id-->
+        <td>{{i + 1}}</td>
+        <!--staffFullName-->
+        <td>{{employee.staffFull_Name}}</td>
+        <!--staffPositon-->
+        <td>{{employee.staff_Position}}</td>
+        <!--image-->
+        <td><img src="{{employee.image_Path}" width="150" height="150"/></td>
+      </tr>
+    </tbody>
+  </table>

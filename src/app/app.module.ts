@@ -1,8 +1,11 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule } from '@angular/forms';
+import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +20,11 @@ import { ServiceComponent } from './service/service.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SliderComponent } from './slider/slider.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MailboxComponent } from './mailbox/mailbox.component';
+import { StaffphotosComponent } from './staffphotos/staffphotos.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -30,16 +38,24 @@ import { SliderComponent } from './slider/slider.component';
     FooterComponent,
     ServiceComponent,
     NavbarComponent,
-    SliderComponent
+    SliderComponent,
+    LoginComponent,
+    DashboardComponent,
+    MailboxComponent,
+    StaffphotosComponent
     
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    RxReactiveFormsModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

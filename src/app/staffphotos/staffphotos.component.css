@@ -1,0 +1,34 @@
+
+  .formPhotos{
+    width: 50%;
+    margin: 0 auto;
+}
+button {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+    
+}
+button:hover {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+
+}
+button:active {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+
+}
+
+button::selection {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+
+}
+img {
+    border-radius: 50%;
+   
+  }

@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    color: black;
+}
+  .formLogin{
+    width: 50%;
+    margin: 0 auto;
+}
+.strong {
+    text-decoration: underline;
+}
+
+button {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+    
+}
+.btn {
+    margin-left: 30px;
+}
+button:hover {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+
+}
+button:active {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+
+}
+
+button::selection {
+    color: white;
+    background-color: #09b393;
+    border-color: #09b393;
+
+}
