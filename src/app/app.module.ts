@@ -5,7 +5,6 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ReactiveFormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +47,6 @@ import { from } from 'rxjs';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RxReactiveFormsModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     NgbModule,

@@ -1,7 +1,7 @@
-import { StaffphotosService } from './staffphotos.service';
+import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import {ImageModal} from './imageModal'
+
 @Component({
   selector: 'app-staffphotos',
   templateUrl: './staffphotos.component.html',
@@ -9,30 +9,37 @@ import {ImageModal} from './imageModal'
 })
 export class StaffphotosComponent implements OnInit {
 
-  imageObject: ImageModal;
   photosForm: FormGroup;
   
-  constructor(private formBuilder: FormBuilder, private service:StaffphotosService) { }
-
-  ngOnInit() {
-    this.photosForm = this.formBuilder.group({
+  constructor(public fb: FormBuilder, private http: HttpClient) {
+    this.photosForm = this.fb.group({
       staffFullName: [''],
       staffPosition: [''],
-      image: ['']
-    });
-  }
-  
-  sendImage(form:FormGroup) {
-
-    this.imageObject = new ImageModal()
-    this.imageObject.staffFullName = this.photosForm.value["staffFullName"];
-    this.imageObject.staffPosition = this.photosForm.value["staffPosition"];
-    this.imageObject.image = this.photosForm.value["image"];
-
-    this.service.createStaff(this.imageObject).subscribe(data=> {
-
+      image: [null]
     })
+   }
 
+  ngOnInit() { }
+  
+  uploadFile(event) {
+    const file  = (event.target as HTMLInputElement).files[0];
+    this.photosForm.patchValue({
+      image: file
+    });
+    this.photosForm.get('image').updateValueAndValidity()
+  }
+
+  submitForm() {
+    console.log(this.photosForm.value)
+    var formData: any = new FormData();
+    formData.append("staffFullName", this.photosForm.get('staffFullName').value);
+    formData.append("staffPosition", this.photosForm.get('staffPosition').value);
+    formData.append("image", this.photosForm.get('image').value);
+
+    this.http.post('http://localhost:8080/uploadImage', formData).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    )
   }
 
 }

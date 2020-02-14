@@ -1,5 +1,5 @@
 <div class="formPhotos">
-    <form [formGroup]="photosForm">
+    <form [formGroup]="photosForm" (ngSubmit)="submitForm()">
         <fieldset> 
             <legend>Add New Person :</legend>
             <div class="form-group">
@@ -12,10 +12,10 @@
             </div>
             <div class="form-group">
                 <label for="image">Employee Photo</label>
-                <input type="file" formControlName="image" class="form-control" />
+                <input type="file" (change)="uploadFile($event)" formControlName="image" class="form-control" />
             </div>
             <div class="form-group">
-                <button type="submit" (click)="sendImage(photosForm)" class="btn btn-primary">POST</button>
+                <button type="submit"  class="btn btn-primary">POST</button>
             </div>
             <!--Add "Employee Created" Or "Error" Using -> *ngIf="" and {{The Message}}-->
             <div class="form-group">
