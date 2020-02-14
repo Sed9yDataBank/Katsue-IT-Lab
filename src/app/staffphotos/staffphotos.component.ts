@@ -1,4 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { from } from 'rxjs';
+import { StaffUploads } from './staff-uploads';
+import { HttpClient} from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class StaffphotosComponent implements OnInit {
 
   photosForm: FormGroup;
-  
+  staffUploads : StaffUploads[] = [];
   constructor(public fb: FormBuilder, private http: HttpClient) {
     this.photosForm = this.fb.group({
       staffFullName: [''],
@@ -19,7 +21,9 @@ export class StaffphotosComponent implements OnInit {
     })
    }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getAllStaff();
+  }
   
   uploadFile(event) {
     const file  = (event.target as HTMLInputElement).files[0];
@@ -41,5 +45,21 @@ export class StaffphotosComponent implements OnInit {
       (error) => console.log(error)
     )
   }
+
+ 
+  public getAllStaff() {
+    let url = "http://localhost:8080/uploads";
+    this.http.get<StaffUploads[]>(url).subscribe(
+      res => {
+        this.staffUploads = res;
+        alert("mySTaffssss:")
+        console.log("Staffffffffffffffffffffff")
+      },
+      err => {
+        alert("An Error Has Occured ! ")
+      }
+    );
+  }
+
 
 }

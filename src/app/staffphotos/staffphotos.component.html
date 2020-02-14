@@ -36,16 +36,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of Employees; let i = index">
+      <tr *ngFor="let staffupload of staffUploads">
         <th scope="row"></th>
         <!--Id-->
-        <td>{{i + 1}}</td>
+        <td>{{staffupload.id}}</td>
         <!--staffFullName-->
-        <td>{{employee.staffFull_Name}}</td>
+        <td>{{staffupload.staff_full_name}}</td>
         <!--staffPositon-->
-        <td>{{employee.staff_Position}}</td>
+        <td>{{staffupload.staff_Position}}</td>
         <!--image-->
-        <td><img src="{{employee.image_Path}" width="150" height="150"/></td>
+        <td><img src="{{staffupload.image_path}" width="150" height="150"/></td>
       </tr>
     </tbody>
   </table>
