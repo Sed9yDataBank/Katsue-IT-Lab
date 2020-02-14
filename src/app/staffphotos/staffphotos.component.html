@@ -29,7 +29,7 @@
 <table class="table table-borderless">
     <thead>
       <tr>
-        <th scope="col">#Id</th>
+       
         <th scope="col">EmployeeName</th>
         <th scope="col">EmployeePosition</th>
         <th scope="col">EmployeePhoto</th>
@@ -38,14 +38,13 @@
     <tbody>
       <tr *ngFor="let staffupload of staffUploads">
         <th scope="row"></th>
-        <!--Id-->
-        <td>{{staffupload.id}}</td>
+       
         <!--staffFullName-->
-        <td>{{staffupload.staff_full_name}}</td>
+        <td>{{staffupload.staffFullName}}</td>
         <!--staffPositon-->
-        <td>{{staffupload.staff_Position}}</td>
+        <td>{{staffupload.staffPosition}}</td>
         <!--image-->
-        <td><img src="{{staffupload.image_path}" width="150" height="150"/></td>
+        <td><img src="{{staffupload.imagePath}" width="150" height="150"/></td>
       </tr>
     </tbody>
   </table>

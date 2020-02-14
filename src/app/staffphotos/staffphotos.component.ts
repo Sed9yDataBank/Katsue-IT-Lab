@@ -52,8 +52,8 @@ export class StaffphotosComponent implements OnInit {
     this.http.get<StaffUploads[]>(url).subscribe(
       res => {
         this.staffUploads = res;
-        alert("mySTaffssss:")
         console.log("Staffffffffffffffffffffff")
+        console.log(res)
       },
       err => {
         alert("An Error Has Occured ! ")
