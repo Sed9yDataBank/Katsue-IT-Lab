@@ -31,6 +31,10 @@ export class ContactComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(5)]],
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1eba28c6f70036f19cfd08661430c90883805b5
 }
 // convenience getter for easy access to form fields
 get f() { return this.messageForm.controls; }
@@ -64,4 +68,8 @@ clearForm(){
 
   })
  }
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1eba28c6f70036f19cfd08661430c90883805b5
 }
