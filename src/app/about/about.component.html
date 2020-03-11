@@ -1,0 +1,53 @@
+<div id="aboutus">
+<p class="headerAbout">Who We Are ?</p>
+
+<nav ngbNav #nav="ngbNav" class="nav-tabs">
+  <ng-container ngbNavItem>
+    <a ngbNavLink class="firstAbout"><h2>Who is the <strong>CEO</strong></h2><i class="material-icons">
+      person
+      </i></a>
+    <ng-template ngbNavContent class="first">
+      <p>
+        <img src="assets/img/icons/Blog6.jpg" alt="" width="50%" />
+        {{paragraph1}}
+      </p>
+    </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a ngbNavLink><h2>Our <strong>History</strong></h2><i class="material-icons">
+      hourglass_empty
+      </i></a>
+    <ng-template ngbNavContent>
+      <p>
+        <img src="assets/img/icons/P2.jpg" alt="" width="50%" />
+        {{paragraph2}}
+      </p>
+    </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a ngbNavLink><h2>Why <strong>Tunisia</strong></h2><i class="material-icons">
+      explore
+      </i></a>
+    <ng-template ngbNavContent>
+      <p>      
+        <img src="assets/img/icons/P3.jpg" alt="" width="50%" />
+        {{paragraph3}}
+      </p>
+     </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a ngbNavLink><h2>Why <strong>Monastir</strong></h2><i class="material-icons">
+      search
+      </i></a>
+    <ng-template ngbNavContent>
+      <p>
+        <img src="assets/img/icons/P4.jpg" alt="" width="50%" />
+        {{paragraph4}}
+      </p>
+    </ng-template>
+  </ng-container>
+</nav>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+</div>

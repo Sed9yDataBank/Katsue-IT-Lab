@@ -1,0 +1,11 @@
+h5 > strong > a {
+    color: black;
+}
+
+h5 > strong > a:hover {
+    color: #09b393;
+}
+
+.more {
+    color: black;
+}

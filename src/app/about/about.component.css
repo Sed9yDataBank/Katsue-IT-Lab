@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.headerAbout {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #2c343b;
+}
+
+@media screen and (max-width: 1119px) {
+    .headerAbout {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 851px) {
+    
+    a.ngbNavItem {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+a {
+    background-color: #09b393;
+    color: white;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-left: 10px;
+    
+}
+
+@media screen and (max-width: 1207px) {
+    a {
+    padding-left: 20px;
+    padding-right: 20px;
+    }}
+
+a:hover {
+    color: white;
+}
+
+@media screen and (max-width: 887px) {
+    a {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 887px) {
+    a {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen  and (max-width: 847) {
+    a {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+
+a::selection {
+    color: white;
+}
+
+i {
+    padding-left: 35%;
+}
+
+img {
+    display: block;
+    float: left;
+    padding-left: 60px;
+    padding-right: 50px;
+    
+}
+
+p {
+    padding-top: 25px;
+    margin-left: 100px;
+    font-size: large;
+    font-weight: bold;
+}

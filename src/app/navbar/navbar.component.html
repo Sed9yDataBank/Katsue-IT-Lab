@@ -1,0 +1,55 @@
+<!-- navbar -->
+<div class="navbar-wrapper">
+    <div class="navbar navbar-inverse navbar-fixed-top" (scroll)="onWindowScroll($event);">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Responsive navbar -->
+                <button type="button" (click)="toggleCollapse()"  class="navbar-toggle x collapsed" data-toggle="collapse" data-target="#navbar-collapse-x">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    
+                <h1 class="brand">
+                    <!--Only On Scroll Event-->
+                    <a href="index.html">
+                        <img  [src]="logoPath" width="200px">
+                    </a>
+                </h1>
+                
+                <div class="collapse navbar-collapse" id="navbar-collapse-x" [class.show]="show" > 
+                <!-- navigation -->
+                    <nav class="pull-right"  >
+                        <ul id="menu-main"  class="nav"  >
+                            <li >
+                                <a href="#aboutus">About</a>
+                            </li>
+                            <li >
+                                <a href="#services">Services</a>
+                            </li>
+                            <li > 
+                                <a href="#portfolio">Album</a>
+                            </li>
+                            
+                            <li >
+                                <a href="#blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Meet The Team</a>
+                            </li>
+                            <li >
+                                <a href="#contact-us">Contact</a>
+                            </li>
+                            <li >
+                                <a href="#">Join Our Team</a>
+                            </li>
+                            <li >
+                                <a href="#">News Archive</a>
+                            </li>
+                        </ul>
+                    </nav>
+             </div>
+            </div>
+        </div>
+    </div>
+</div>
