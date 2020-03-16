@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TRIFECTA": {
+    "Katsue IT Lab": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TRIFECTA",
+            "outputPath": "dist/Katsue IT Lab",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "TRIFECTA:build"
+            "browserTarget": "Katsue IT Lab:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "TRIFECTA:build:production"
+              "browserTarget": "Katsue IT Lab:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TRIFECTA:build"
+            "browserTarget": "Katsue IT Lab:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "TRIFECTA:serve"
+            "devServerTarget": "Katsue IT Lab:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "TRIFECTA:serve:production"
+              "devServerTarget": "Katsue IT Lab:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "TRIFECTA"
+  "defaultProject": "Katsue IT Lab"
 }
