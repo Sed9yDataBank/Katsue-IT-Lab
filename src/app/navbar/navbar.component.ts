@@ -9,7 +9,7 @@ import { HostListener } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  logoPath = "assets/img/bg/whiteLogo.png";
+  logoPath = "assets/img/bg/logo.png";
   show:boolean = false;
 
 
@@ -40,11 +40,11 @@ export class NavbarComponent implements OnInit {
     // change '50' according to when you want to change the image
     if (scrollPos > 93) {
       console.log('New image');
-      this.logoPath = "assets/img/logo-image.png";
+      this.logoPath = "assets/img/bg/Colorlogo.png";
     }
     else {
       console.log('Old Image');
-      this.logoPath = "assets/img/bg/whiteLogo.png";
+      this.logoPath = "assets/img/bg/logo.png";
     }
 
   };

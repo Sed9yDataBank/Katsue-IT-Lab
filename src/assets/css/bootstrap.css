@@ -4047,19 +4047,6 @@ input[type="submit"].btn.btn-mini {
   border-bottom: 1px solid #ddd;
 }
 
-.nav-tabs > li {
-  margin-bottom: -1px;
-}
-
-.nav-tabs > li > a {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  line-height: 20px;
-  border: 1px solid transparent;
-  -webkit-border-radius: 4px 4px 0 0;
-     -moz-border-radius: 4px 4px 0 0;
-          border-radius: 4px 4px 0 0;
-}
 
 .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
@@ -4072,8 +4059,6 @@ input[type="submit"].btn.btn-mini {
   color: #555555;
   cursor: default;
   background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-bottom-color: transparent;
 }
 
 .nav-pills > li > a {
@@ -4573,12 +4558,12 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav > li {
   float: left;
 }
-
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 .navbar .nav > li > a {
   float: right;
   text-transform: uppercase;
-  font-size: 13.5px;
-  font-weight: 700;
+  font-family: Comfortaa;
+  font-size: 1rem;
   opacity: 1;
   letter-spacing: 0.5px;
   color: #333;
@@ -4594,7 +4579,6 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
-  color: #09b393;
   text-decoration: none;
   background-color: transparent;
 }
@@ -4764,7 +4748,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-inverse .brand,
 .navbar-inverse .nav > li > a {
-  color: white;
+  color: #333;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -4772,7 +4756,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-inverse .nav > li > a:hover,
 .navbar-inverse .brand:focus,
 .navbar-inverse .nav > li > a:focus {
-  color: #ffffff;
+  color: black;
 }
 
 .navbar-inverse .brand {
@@ -4783,27 +4767,8 @@ input[type="submit"].btn.btn-mini {
   color: #999999;
 }
 
-.navbar-inverse .nav > li > a:focus,
-.navbar-inverse .nav > li > a:hover {
-  color: white;
-  background-color: transparent;
-}
 
-.navbar-inverse .nav .active > a,
-.navbar-inverse .nav .active > a:hover,
-.navbar-inverse .nav .active > a:focus {
-  color: #ffffff;
-  background-color: #111111;
-}
 
-.navbar-inverse .navbar-link {
-  color: #999999;
-}
-
-.navbar-inverse .navbar-link:hover,
-.navbar-inverse .navbar-link:focus {
-  color: #ffffff;
-}
 
 .navbar-inverse .divider-vertical {
   border-right-color: #222222;

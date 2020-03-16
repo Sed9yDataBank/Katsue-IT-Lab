@@ -664,7 +664,6 @@ footer .logo-ft {
 	display: inline-block;
 	margin-top: 15px;
 	text-decoration: none;
-	color: #000000!important;
 	font-size: 21px;
 	font-weight: 900;
 	text-transform: uppercase;
@@ -689,9 +688,6 @@ footer .logo a {
 	color: #FFF;
 }
 
-footer .logo a:hover {
-	color: #9F0;
-}
 
 footer .location h4 {
 	margin-top: 0px;
@@ -717,6 +713,7 @@ footer .location ul li:first-child {
 	margin-right: 15px;
 	padding-right: 15px;
 	border-right: 1px solid rgba(250, 250, 250, 0.1);
+	border-left: 1px solid rgba(250, 250, 250, 0.1);
 }
 
 footer .contact-info h4 {
