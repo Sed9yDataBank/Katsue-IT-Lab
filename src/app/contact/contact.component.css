@@ -1,12 +1,12 @@
 .btn-primary {
-    background-color: #09b393;
+    background-color: #6c757d;
     border-color: transparent;
     color: white;
 }
 
 .btn-primary:hover {
     
-    background-color: #09b393;
+    background-color: #6c757d;
     border-color: transparent;
     color: white;
     font-weight: bold;
@@ -16,13 +16,13 @@
 
 .btn-primary:active {
 
-    background-color: #09b393;
+    background-color: #6c757d;
     border-color: transparent;
     color: white;
 }
 
 .modal-header {
-    background-color: #09b393;
+    background-color: #6c757d;
     color: white;
     text-align: center;
     line-height: 90px;

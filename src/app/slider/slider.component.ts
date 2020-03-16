@@ -9,7 +9,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SliderComponent implements OnInit {
 
-  images = ["before.jpg", "after.jpg"].map((n) => `assets/img/${n}`);
+  images = ["slider1.jpg", "slider2.jpg"].map((n) => `assets/img/${n}`);
 
   constructor(config: NgbCarouselConfig) { 
     config.interval = 6000;

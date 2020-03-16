@@ -321,10 +321,10 @@ h2.pagetitle {
 
 
 ul#menu-main > li > a:hover {
-	padding: 9px 15px;
-	border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
+	padding: 4.5px 10px;
+	border-radius: 1px;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
 }
 ul#menu-main > li > a:focus {
 	outline:0;
@@ -473,7 +473,7 @@ section.inner {
 
 section.spacer {
 	padding:90px 0 70px;
-	color:#fcfcfc;
+	color:  #555;
 }
 
 .spacer.green,.section.green {
@@ -499,14 +499,14 @@ section.spacer.bg2 {
 }
 
 section.spacer.bg3 {
-	background: url(../img/bg/bg-3.jpg) 50% 0 no-repeat fixed;
+	background: url(../img/bg/wallpaper.jpg) 50% 0 no-repeat fixed;
 	width:100%;
 	height:auto;
 	margin:0;	
 }
 
 section.spacer blockquote.large:before {
-	color:#eee;
+	color:black;
 	opacity:0.6;
 }
 
@@ -763,7 +763,7 @@ section#services .service-box h2:hover {
 }
 
 section#services.section.orange .service-box:hover {
-	background:#09b393;
+	background:rgba(0, 0, 0, 0.45);
 	color: white;
 }
 
@@ -1130,6 +1130,8 @@ i.icon-square.icon-2x{
 	width: 48px !important;
 	height: 48px !important;
 	line-height: 48px !important;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.75);
 }
 i.icon-square.icon-3x{
 	width: 72px !important;
@@ -1336,17 +1338,17 @@ i.icon-white {
 
 
 .btn.btn-theme {
-	background: #09b393 !important;
+	background: #6c757d !important;
 	color: white;
 }
 
 .btn.btn-theme:hover {
-	background: #09b393 !important;
+	background: #6c757d !important;
 	color: white;
 }
 
 .btn.btn-theme:active {
-	background: #09b393 !important;
+	background: #6c757d !important;
 	color: white;
 }
 
@@ -1689,6 +1691,7 @@ i.icon-white {
  .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
  margin-left: auto;
  margin-right: auto;
+ background-color: transparent;
 }
 		
 /* Contact Form */
