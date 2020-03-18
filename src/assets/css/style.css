@@ -489,7 +489,11 @@ section.spacer.bg3 {
 	height:auto;
 	margin:0;	
 }
-
+.spacercontact {
+	background-image: url(../img/bg/contact.jpg);
+	width: 100%;
+	background-size: cover;
+}
 section.spacer blockquote.large:before {
 	color:black;
 	opacity:0.6;

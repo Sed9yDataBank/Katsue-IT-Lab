@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TeamComponent } from './team/team.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'adminpanel', component: DashboardComponent
+  },
+  {
+    path: 'joinus', component: TeamComponent
   }
 ];
 

@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.css" />
+<link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[0]" alt="Random first slide">
+    </div>
+    <div class="carousel-caption">
+        <h3>Interesed In Working With Us ?</h3>
+        <p>Develop Your Career In A Global Organisation That'S Constantly Innovating.</p><br><br><br>
+      </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img [src]="images[1]" alt="Random second slide">
+    </div>
+    <div class="carousel-caption">
+        <h3>Interesed In Working With Us ?</h3>
+        <p>Develop Your Career In A Global Organisation That'S Constantly Innovating.</p><br><br><br>
+      </div>
+  </ng-template>
+</ngb-carousel>
+
+<!--Steps-->
+
+<div class="process-wrap active-step1">
+  <div class="process-main">
+    <div class="col-3 ">
+      <div class="process-step-cont">
+        <div class="process-step step-1"></div>
+        <span class="process-label">Apply<br><i class="material-icons">list_alt</i></span>
+      </div>
+    </div>
+    <div class="col-3 ">
+      <div class="process-step-cont">
+        <div class="process-step step-2"></div>
+        <span class="process-label">Technical Test<br><i class="material-icons">edit</i></span>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="process-step-cont">
+        <div class="process-step step-3"></div>
+        <span class="process-label">Interview<br><i class="material-icons">people</i></span>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="process-step-cont">
+        <div class="process-step step-4"></div>
+        <span class="process-label">Welcome Abroad<br><i class="material-icons">person_add</i></span>
+      </div>
+    </div>
+  </div>
+</div>

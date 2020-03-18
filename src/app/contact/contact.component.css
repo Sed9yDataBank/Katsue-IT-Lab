@@ -33,10 +33,15 @@
     margin-top: 0;
     margin-bottom: 0;
 }
-
+@import url('https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap');
 h1 {
-    line-height: 50px;
+    line-height: 1.1em;
     text-align: center;
-    font-size: 46px;
-    font-family: 'Shadows Into Light', cursive;
+    font-size: 36px;
+    font-weight: 400;
+    font-family: 'Liu Jian Mao Cao', cursive;
+}
+
+.spacercontact {
+    margin-bottom: 2cm;
 }
