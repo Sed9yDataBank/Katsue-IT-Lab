@@ -54,3 +54,185 @@
     </div>
   </div>
 </div>
+
+<!--Job Articles-->
+<main class="wrapper">
+  <section class="hero">
+    <h1>Interseted Huh ❤ ❤ ?</h1>
+    <article>
+      <p>At Katsue IT Lab, we strive to have the greatest employees and to have them thrive! These core employee values define what’s important in ourselves as employees as well as our team members. We identify with our core values, which are incorporated into our everyday work and interactions, and our performance reviews.</p>
+      <a href="" (click)="scrollToBreweries()">Browse Available Positions</a>
+    </article>
+  </section>
+  <section class="breweries" id="breweries">
+    <ul>
+      <li>
+        <figure>
+          <!-- Photo by Quentin Dr on Unsplash -->
+          <img src="assets/img/icons/devops.jpg" alt="Several hands holding beer glasses">
+          <figcaption><h3>DevOps Engineer - Fully Remote</h3></figcaption>
+        </figure>
+        <p>
+          Katsue IT Lab is excited to be hiring a DevOps Engineer. In this role you will be part of the software team that creates, executes and develops the software and control systems for future products. You will facilitate the ability of engineering to deliver software with accuracy and speed. The DevOps engineer will be responsible for the design, implementation of Katsue CI/CD and cloud based automated provisioning infrastructure.
+        </p>
+        <a href="#">Apply Now</a>
+      </li>
+      <li>
+        <figure>
+          <!-- Photo by Drew Farwell on Unsplash -->
+          <img src="assets/img/icons/roboticsoengineer.jpg" alt="Several friends doing a toast">
+          <figcaption><h3>Senior Robotics Software Engineer</h3></figcaption>
+        </figure>
+        <p>
+          Katsue IT Lab is hiring a passionate and experienced Senior Robotics Software Engineer to join our engineering team. In this role you will bring your expertise in robot navigation to help move and operate collaboratively with people. The Senior Robotics Software Engineer will be a key contributor in the development and improvement of future mobility products. Experience developing navigation algorithms in prior robotic products is necessary for success in this role at Katsue. 
+        </p>
+        <a href="#">Apply Now</a>
+      </li>
+      <li>
+        <figure>
+          <!-- Photo by Rawpixel on Unsplash -->
+          <img src="assets/img/icons/production.jpg" alt="Three different glasses of beer">
+          <figcaption><h3>Production Supervisor</h3></figcaption>
+        </figure>
+        <p>
+          We are looking for an experienced Production Supervisor to oversee our production operations and staff. The Production Supervisor will guarantee that manufacturing remains a smooth and efficient process by monitoring employees and organizing workflows.
+In a fast-paced environment like production, the Supervisor is an integral part of the manufacturing process. You must be competent and comprehend complex operations. You should also be able to optimize day-to-day activities while minimizing the costs.
+        </p>
+        <a href="#">Apply Now</a>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<!--Team Gallery Slider-->
+<h1 style="text-align: center;padding-bottom: 25px;padding-top: 35px;">Meet Our Lovley Team Members ❤ ❤ </h1>
+<ngb-carousel *ngIf="images" style="width: 40%;right: 200px;left: 100px;">
+ 
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Clara.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Clara</h3>
+      <p>DevOps Engineer, Efficeny Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Tory.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Tory</h3>
+      <p>Mechanical Engineer, Tech Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Sadik.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Sadik</h3>
+      <p>Robotic Software Engineer, Tech Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Marlyn.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Marlyn</h3>
+      <p>Penetration Tester, Efficeny Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Fred.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Fred</h3>
+      <p>Artifical Intelligence Engineer, Tech Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Damen.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Damen</h3>
+      <p>Robotic Mechanical Engineer, Tech Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Sasuke.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Sasuke</h3>
+      <p>Sales Manager, Marketing Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Arica.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Arica</h3>
+      <p>DevOps Consultant, Tech Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Jack.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Dann</h3>
+      <p>Technical Manager, CEO.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Marten.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Nethan</h3>
+      <p>Administrator, CEO.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Amber.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Amber</h3>
+      <p>Software Engineer, Efficeny Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Bob.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Bob</h3>
+      <p>Cloud Engineer, Network Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="assets/Team/Jeff.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 220px; width: 200px;margin-bottom: 55px;">
+      <h3>Jeff</h3>
+      <p>Big Data Engineer, Network Devision.</p><br><br><br>
+    </div>
+  </ng-template>
+
+</ngb-carousel>
+<div style="display: block;padding-left: 50px;padding-right: 80px;margin-bottom: 5rem;">
+  <p>Katsue IT Lab Holds The Coolest Individuals Ever, Within Us You Will Have The Opprotunity To Intreact With Everyone, From The Tech Department Team To The Sale And Production Team ! As A Startup We Stick Together As A Team In A Multi Culture Working Environment. <br> What Are You Waiting For ? Apply Now And Join Us !</p>
+</div>
+
+
+<app-footer></app-footer>
+<footer>
+  <p> &copy; We Are Growing Steadily, And Will Be Listing More Positions In The Near Future. If Your Area Of Expertise Isn't Listed Please Contact Us At recruiting@KatsueIT.nl With Any Relevant work Experience And Your Areas Of Interest.</p>
+</footer>
