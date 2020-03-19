@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
  
    checkLogin(){
      this.flagsCheck = true;
-    if(this.loginForm.controls['username'].value ==="admin" && this.loginForm.controls['password'].value ==="admin"){
-      this.message ="login success"
+    if(this.loginForm.controls['username'].value ==="demo" && this.loginForm.controls['password'].value ==="demo"){
+      this.message ="Login Success"
       this.merge = true;
     }else{
-      this.message ="Username or password is incorrect";
+      this.message ="Username Or Password Are Incorrect";
     }
 
   }

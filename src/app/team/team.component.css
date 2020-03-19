@@ -278,4 +278,9 @@ footer {
   text-align: center;
   font-size: .75rem;
 }
+.carousel-caption {
+  display: block;
+  position: relative;
+  top: -220px;
+}
 

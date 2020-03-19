@@ -1,19 +1,69 @@
-h1{
-    text-align: center;
-    color: black;
+h1 {
+    padding-top: 25px;
+    padding-left: 15px;
 }
+i {
+    padding-left: 13.5px;
+}
+#inputGo {
+    padding-top: 18px;
+    width: 37%;
+}
+h1:after {
+    position: absolute;
+    content: "";
+    height: 5px;
+    bottom: -15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 40px;
+    background: black;
+    background: -webkit-linear-gradient(to right, gray, black);
+    background: linear-gradient(to right, black, black);
+    -o-transition: 0.25s;
+    -ms-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+  }
   .formLogin{
     width: 50%;
     margin: 0 auto;
+    border-radius: 25px;
+    box-shadow: 0px 10px 25px 5px #0000000f;
+}
+.invalid-feedback {
+    color: black;
+    font-weight: 600;
+    font-size: 0.95em;
+    padding-left: 15px;
+}
+input {
+    width: 35%;
+    margin-left: 15px;
+}
+label {
+    margin-top: 35px;
+    margin-left: 15px;
+    margin-bottom: 8px;
 }
 .strong {
-    text-decoration: underline;
+    text-align: center;
+    color: gray;
+    font-weight: 200px;
+    font-family: 'Roboto', Helvetica, sans-serif;
+    line-height: normal;
 }
 
 button {
     color: white;
-    background-color: #09b393;
-    border-color: #09b393;
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
+    border-radius: 25px;
+    margin-bottom: 50px;
+    box-shadow: 0px 5px 15px 5px #696969;
+    font-size: 1em;
     
 }
 .btn {
@@ -21,20 +71,29 @@ button {
 }
 button:hover {
     color: white;
-    background-color: #09b393;
-    border-color: #09b393;
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
 
 }
 button:active {
     color: white;
-    background-color: #09b393;
-    border-color: #09b393;
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
 
 }
 
 button::selection {
     color: white;
-    background-color: #09b393;
-    border-color: #09b393;
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
 
 }
+
+/* footer */
+footer {
+    background-color: #333;
+    padding: .75rem;
+    color: white;
+    text-align: center;
+    font-size: .75rem;
+  }

@@ -1160,6 +1160,19 @@ i.icon-white {
 	height: auto;
 }
 
+.loginBack  {
+	background: url(../img/bg/loginback.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	min-height: 500vh;
+	background-position: center 0.1px;
+	opacity: 85%;
+	overflow: hidden;
+
+}
 /* =========================================================
 09. Media queries
 ============================================================ */
@@ -1301,6 +1314,7 @@ i.icon-white {
  margin-right: auto;
  background-color: transparent;
 }
+
 
 /* Contact Form */
 	#contact-form {
