@@ -1,38 +1,40 @@
-<div class="formPhotos">
-    <form [formGroup]="photosForm" (ngSubmit)="submitForm()">
-        <fieldset> 
-            <legend>Add New Person :</legend>
-            <div class="form-group">
-                <label for="staffFullName">Employee Name</label>
-                <input type="text" formControlName="staffFullName" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label for="staffPosition">Employee Position</label>
-                <input type="text" formControlName="staffPosition" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label for="image">Employee Photo</label>
-                <input type="file" (change)="uploadFile($event)" formControlName="image" class="form-control" />
-            </div>
-            <div class="form-group">
-                <button type="submit"  class="btn btn-primary">POST</button>
-            </div>
-            <!--Add "Employee Created" Or "Error" Using -> *ngIf="" and {{The Message}}-->
-            <div class="form-group">
-                <p></p>
-             </div>
-        </fieldset>
-    </form>
+<div class="staffForm">
+  <div class="formPhotos">
+      <form [formGroup]="photosForm" (ngSubmit)="submitForm()">
+          <fieldset> 
+              <legend>Add New Person <i id="pic" class="material-icons">add_photo_alternate</i> :</legend>
+              <div class="form-group">
+                  <label for="staffFullName">Employee Name</label> <br>
+                  <input type="text" formControlName="staffFullName" class="form-control" />
+              </div>
+              <div class="form-group">
+                  <label for="staffPosition">Employee Position</label> <br>
+                  <input type="text" formControlName="staffPosition" class="form-control" />
+              </div>
+              <div class="form-group">
+                  <label for="image">Employee Photo</label>
+                  <input type="file" (change)="uploadFile($event)" formControlName="image" class="form-control" />
+              </div>
+              <div class="form-group">
+                  <button type="submit"  class="btn btn-primary">Create</button>
+              </div>
+              <!--Add "Employee Created" Or "Error" Using -> *ngIf="" and {{The Message}}-->
+              <div class="form-group">
+                  <p></p>
+              </div>
+          </fieldset>
+      </form>
+  </div>
 </div>
-
+<h1 id="caption">Employees Information <i style="width: 6%;"class="material-icons">person</i>:</h1>
 <!--Get And Preview All Added Employees From The DataBase-->
 <table class="table table-borderless">
     <thead>
       <tr>
        
-        <th scope="col">EmployeeName</th>
-        <th scope="col">EmployeePosition</th>
-        <th scope="col">EmployeePhoto</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Employee Position</th>
+        <th scope="col">Employee Photo</th>
       </tr>
     </thead>
     <tbody>
@@ -44,11 +46,7 @@
         <!--staffPositon-->
         <td>{{staffupload.staffPosition}}</td>
         <!--image-->
-<<<<<<< HEAD
         <td><img src="{{staffupload.imagePath}}" width="150" height="150"/></td>
-=======
-        <td><img src="{{staffupload.imagePath}" width="150" height="150"/></td>
->>>>>>> d1eba28c6f70036f19cfd08661430c90883805b5
       </tr>
     </tbody>
   </table>

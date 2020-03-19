@@ -20,6 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'joinus', component: TeamComponent
+  },
+  {
+    path: 'adminpanel/mailbox', component: MailboxComponent
   }
 ];
 
