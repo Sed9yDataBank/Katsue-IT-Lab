@@ -121,3 +121,15 @@ body {
     position: relative;
     top: -4px;
 }
+#logOut {
+
+    border-radius: 50%;
+    background-color: #696969;
+    height: 80px;
+    width: 80px;
+}
+
+#logOut:hover {
+    background-color: black;
+    color: white;
+}

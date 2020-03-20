@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 
 @Component({
@@ -10,11 +12,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   loginForm :FormGroup;
-  submitted = false;
-  flagsCheck = false;
-  message = "";
-  merge = false;
-  constructor(private formBuilder :FormBuilder) { }
+  username: string;
+  password: string;
+  errorMessage = 'Server Is Down, Will Be Back Soon...';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
+
+  constructor(private formBuilder :FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -22,28 +27,20 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
   });
   }
-  get f(){
-    return this.loginForm.controls;
+
+  handleLogin() {
+    this.authService.authenticationService(this.username, this.password).subscribe((result)=> {
+      this.invalidLogin = false;
+      this.loginSuccess = true;
+      this.successMessage = 'Login Successful, Welcome Katsue Admin.';
+      this.router.navigate(['/adminpanel']);
+    }, () => {
+      this.invalidLogin = true;
+      this.loginSuccess = false;
+    });      
   }
 
-  onSubmit(){
-    this.submitted = true;
-    if(this.loginForm.invalid){
-      return;
-      
-    }
-    
-  }
- 
-   checkLogin(){
-     this.flagsCheck = true;
-    if(this.loginForm.controls['username'].value ==="demo" && this.loginForm.controls['password'].value ==="demo"){
-      this.message ="Login Success"
-      this.merge = true;
-    }else{
-      this.message ="Username Or Password Are Incorrect";
-    }
 
-  }
+
 }
 

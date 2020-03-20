@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../login/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn = false;
+
+  constructor(private route: ActivatedRoute,private router: Router,private authenticationService: AuthService) { }
 
   ngOnInit() {
+    this.isLoggedIn = this.authenticationService.isUserLoggedIn();
+    console.log('You Are Out' + this.isLoggedIn);
   }
 
+  handleLogout() {
+    this.authenticationService.logout();
+  }
 }
