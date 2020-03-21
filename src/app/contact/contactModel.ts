@@ -1,6 +1,6 @@
 export class 
 ContatModel{
-    senderFirstName:String;
+    senderFullName:String;
     senderEmail:String;
     senderMessage:String;
 }

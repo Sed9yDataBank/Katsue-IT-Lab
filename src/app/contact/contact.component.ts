@@ -27,7 +27,7 @@ export class ContactComponent implements OnInit {
   }
   ngOnInit() {
     this.messageForm = this.formBuilder.group({
-      firstname: ['', [Validators.required, Validators.minLength(6)]],
+      fullname: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(5)]],
     });
@@ -55,7 +55,7 @@ clearForm(){
 
   console.log("My forrrrm",this.messageForm);
   this.contactObject=new ContatModel()
-  this.contactObject.senderFirstName=this.messageForm.value["firstname"];
+  this.contactObject.senderFullName=this.messageForm.value["fullname"];
   this.contactObject.senderEmail=this.messageForm.value["email"];
   this.contactObject.senderMessage=this.messageForm.value["message"];
 

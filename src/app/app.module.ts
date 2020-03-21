@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MailboxComponent } from './mailbox/mailbox.component';
 import { StaffphotosComponent } from './staffphotos/staffphotos.component';
 import { from } from 'rxjs';
+import { NavdashComponent } from './navdash/navdash.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { from } from 'rxjs';
     LoginComponent,
     DashboardComponent,
     MailboxComponent,
-    StaffphotosComponent
+    StaffphotosComponent,
+    NavdashComponent
     
   ],
   imports: [

@@ -15,10 +15,10 @@
                     <div class="row">
                        <div class="col-sm-6">
                           <div class="form-group">
-                                <label>FirstName</label>
-                                <input type="text" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': sent && f.firstname.errors }" />
+                                <label>Full Name</label>
+                                <input type="text" formControlName="fullname" class="form-control" [ngClass]="{ 'is-invalid': sent && f.firstname.errors }" />
                                 <div *ngIf="sent && f.firstname.errors" class="invalid-feedback">
-                                      <div *ngIf="f.firstname.errors.required">FirstName is required</div>
+                                      <div *ngIf="f.firstname.errors.required">Full Name is required</div>
                                 </div>
                              </div>
                        </div> 
