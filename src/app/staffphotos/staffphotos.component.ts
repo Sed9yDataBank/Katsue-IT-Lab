@@ -11,7 +11,9 @@ import { StaffService } from './staff.service';
 export class StaffphotosComponent implements OnInit {
 
   photosForm: FormGroup;
-  
+  allStaffUploads : StaffUploads[];
+  statusCode: number;
+
   constructor(public fb: FormBuilder, private baseservice: StaffService) {
     this.photosForm = this.fb.group({
       staffFullName: [''],
@@ -20,7 +22,7 @@ export class StaffphotosComponent implements OnInit {
     })
    }
 
-  ngOnInit() { 
+  ngOnInit() :void{ 
     this.getAllStaff();
   }
   
@@ -39,18 +41,46 @@ export class StaffphotosComponent implements OnInit {
     formData.append("staffPosition", this.photosForm.get('staffPosition').value);
     formData.append("image", this.photosForm.get('image').value);
 
-    this.baseservice.createStaff(formData).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    )
+    this.baseservice.createStaff(formData).subscribe(response => {
+      console.log(response);
+      this.getAllStaff();
+    } ,
+      error => console.log(error)
+    );
   }
 
 
   getAllStaff() {
-    return this.baseservice.getUploads().subscribe((res) => {
-      this.baseservice.staffUploads = res as StaffUploads[];
-      console.log("Something Is Wrong ----->", res);
-    })
+		this.baseservice.getUploads().subscribe(
+				data => this.allStaffUploads = data,
+        errorCode => this.statusCode = errorCode
+      );
   }
+  
+  updateStaffById(staffUploads) {
+    this.baseservice.updateStaff(staffUploads).subscribe(statusCode => {
+      this.statusCode = 200;
+      this.getAllStaff();
+      },
+      errorCode => this.statusCode = errorCode
+    );
+  }
+
+  deleteStaff(staffId: string) {
+		this.preProcessConfigurations();
+		this.baseservice.deleteStaffById(staffId)
+			.subscribe(successCode => {
+				//this.statusCode = successCode;
+				//Expecting success code 204 from server
+				this.statusCode = 204;
+				this.getAllStaff();
+			},
+				errorCode => this.statusCode = errorCode);
+	}
+  
+  //Perform preliminary configurations
+	preProcessConfigurations() {
+		this.statusCode = null;
+	}
 }
  

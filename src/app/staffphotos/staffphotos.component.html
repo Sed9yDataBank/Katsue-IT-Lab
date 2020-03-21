@@ -19,34 +19,36 @@
                   <button type="submit"  class="btn btn-primary">Create</button>
               </div>
               <!--Add "Employee Created" Or "Error" Using -> *ngIf="" and {{The Message}}-->
-              <div class="form-group">
-                  <p></p>
+              <div *ngIf="statusCode">
+                <div *ngIf="statusCode === 201" class="success">Staff Created Successfully.</div>
+                <div *ngIf="statusCode === 200" class="success">Staff Updated Successfully.</div>
+                <div *ngIf="statusCode === 204" class="success">Staff Deleted Successfully.</div>
+                <div *ngIf="statusCode === 500" class="error">Internal Server Error.</div>
               </div>
           </fieldset>
       </form>
   </div>
 </div>
-<h1 id="caption">Employees Information <i style="width: 6%;"class="material-icons">person</i>:</h1>
-<!--Get And Preview All Added Employees From The DataBase-->
+<h1 id="caption">Staff Information <i style="width: 6%;"class="material-icons">person</i>:</h1>
+<!--Get And Preview All Added Staff From The DataBase-->
 <table class="table table-borderless">
-    <thead>
       <tr>
-       
-        <th scope="col">Employee Name</th>
-        <th scope="col">Employee Position</th>
-        <th scope="col">Employee Photo</th>
+        <th scope="col">Staff Name</th>
+        <th scope="col">Staff Position</th>
+        <th scope="col">Staff Photo</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let staffupload of staffUploads">
-        <th scope="row"></th>
-       
+      <tr *ngFor="let staffupload of allStaffUploads">
         <!--staffFullName-->
         <td>{{staffupload.staffFullName}}</td>
         <!--staffPositon-->
         <td>{{staffupload.staffPosition}}</td>
         <!--image-->
         <td><img src="{{staffupload.imagePath}}" width="150" height="150"/></td>
+        <td>
+          <button type="button" (click)="updateStaffById(staffUploads.staffId)">Edit</button>
+        </td>
+        <td>
+          <button type="button" (click)="deleteStaff(staffUploads.staffId)">Delete</button>
+        </td>
       </tr>
-    </tbody>
   </table>

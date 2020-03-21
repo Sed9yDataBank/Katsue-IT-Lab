@@ -52,6 +52,12 @@ button:hover {
     margin-top: 15px;
     margin-left: 30px;
 }
+.btn-primary:active {
+    color: white !important;
+}
+.btn-primary::selection {
+    color: white !important;
+}
 img {
     border-radius: 50%;
    

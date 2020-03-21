@@ -53,7 +53,7 @@ clearForm(){
  
  sendData(form:FormGroup){
 
-  console.log("My forrrrm",this.messageForm);
+  console.log("Your Message Is Sent ",this.messageForm);
   this.contactObject=new ContatModel()
   this.contactObject.senderFullName=this.messageForm.value["fullname"];
   this.contactObject.senderEmail=this.messageForm.value["email"];

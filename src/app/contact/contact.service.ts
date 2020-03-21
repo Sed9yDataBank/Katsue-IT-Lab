@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
 
-  private _url : string = "http://localhost:8080/senders";
+  private _url : string = "http://localhost:8080/messages";
 
   constructor(private _http: HttpClient) { }
 
