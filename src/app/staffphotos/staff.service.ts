@@ -1,7 +1,7 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { StaffUploads } from './staffUploadsModel';
+import { StaffUploads } from './staff-uploads';
 
 @Injectable({
   providedIn: 'root'

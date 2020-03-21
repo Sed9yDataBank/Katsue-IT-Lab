@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MailService } from './mailservice.service';
+import { Mailbox } from './mailbox';
 
 
 @Component({
@@ -8,10 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MailboxComponent implements OnInit {
 
-
-  constructor() { }
+  mailBox : Mailbox [];
+  
+  constructor(private service: MailService) { }
 
   ngOnInit() {
+    this.getAllMessages();
   }
+
+  getAllMessages() {
+    this.service.getMessages().subscribe(data => {
+      this.mailBox = data;
+    },
+    error => {
+      console.log('404 Not Working', error)}
+    );
+  }
+
+	deleteMessageById(id: string) {
+		this.service.deleteMessage(id).subscribe(res => {
+				this.getAllMessages();
+      },
+      error => {
+        console.log('404 It Will Not Delete', error)}
+      );
+	}
   
 }

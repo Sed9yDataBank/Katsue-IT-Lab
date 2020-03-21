@@ -4,6 +4,19 @@
         <h2>Katsue Mail Box <i class="material-icons">inbox</i> :</h2>
     </div>
 
+    <div *ngFor="let mailbox of mailBox" class="box"> 
+        <p>
+            From: {{mailbox.senderFullName}}
+        </p>
+        <p>
+          Message: {{mailbox.senderMessage}}. 
+        </p>
+        <small>Email: {{mailbox.senderEmail}}</small>
+        <small>On: {{mailbox.sentAt}}</small>
+        <button type="button" (click)="deleteMessageById(mailbox.id)" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>
+    </div>
+
+    <!--These Are Examples Of The APIs Response-->
     <div class="box"> 
         <p>
             From: Sedki Benzid
@@ -12,9 +25,8 @@
           Message: This Is A Demo On How Data Appear When Fetched From Database. 
         </p>
         <small>Email: benzidsedki@gmail.com</small>
-        <small>At: 08.19 AM</small>
-        <small>On: 19/03/2019</small>
-        <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>
+        <small>On: 19-03-2019 08:19:25.792</small>
+        <button type="button" (click)="deleteMessageById(mailbox.id)" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>
     </div>
     <div class="box"> 
         <p>
@@ -24,8 +36,8 @@
           Message: This Is A Demo On How Data Appear When Fetched From Database, This Is Used To Show As If The User Has Sent A Bit Long Message, All The Data Typed Will Be Ready To Be Read. 
         </p>
         <small>Email: benzidsedki@gmail.com</small>
-        <small>At: 08.19 AM</small>
-        <small>On: 19/03/2019</small>
-        <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>
+        <small>On: 19-03-2019 07:35:19.123</small>
+        <small></small>
+        <button type="button" (click)="deleteMessageById(mailbox.id)" class="btn btn-warning btn-circle"><i class="fa fa-times"></i></button>
     </div>
 </main>

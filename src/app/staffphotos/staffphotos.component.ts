@@ -1,7 +1,5 @@
-import { from } from 'rxjs';
-import {StaffUploads } from './staffUploadsModel';
-import { HttpClient} from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {StaffUploads } from './staff-uploads';
+import { FormBuilder, FormGroup} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { StaffService } from './staff.service';
 
@@ -13,6 +11,7 @@ import { StaffService } from './staff.service';
 export class StaffphotosComponent implements OnInit {
 
   photosForm: FormGroup;
+  
   constructor(public fb: FormBuilder, private baseservice: StaffService) {
     this.photosForm = this.fb.group({
       staffFullName: [''],

@@ -15,7 +15,7 @@ export class NavdashComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
-    console.log('You Are Out' + this.isLoggedIn);
+    console.log('Your Login Authentication is ' + this.isLoggedIn);
   }
 
   handleLogout() {
