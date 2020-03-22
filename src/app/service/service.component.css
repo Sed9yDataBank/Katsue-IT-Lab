@@ -2,3 +2,10 @@
 h2:hover {
     color: white;
 }
+.row {
+    margin-right: -60px !important;
+    margin-left: 50px !important;
+}
+h2 {
+    color: #00000091 !important;
+}

@@ -8,7 +8,6 @@
     letter-spacing: -1px;
     color: #2c343b;
 }
-
 @media screen and (max-width: 1119px) {
     .headerAbout {
         font-size: 30px;

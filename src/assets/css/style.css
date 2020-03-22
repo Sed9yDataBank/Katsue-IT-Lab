@@ -450,7 +450,7 @@ section.inner {
 	color: #2c343b;
 }
 .section.orange p,.section.green p {
-	color: black;
+	color: #000000c4;
 }
 
 
@@ -555,7 +555,7 @@ section#services .service-box h2:hover {
 }
 
 section#services.section.orange .service-box:hover {
-	background:rgba(0, 0, 0, 0.45);
+	background:rgba(225, 223, 223, 0.24);
 	color: white;
 }
 
