@@ -10,6 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 export class MailService {
 
   private path : string = "http://localhost:8080/messages";
+  private url : string = "http://localhost:8080/email/sendreply";
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +31,10 @@ export class MailService {
   private handleError(error: any) {
     console.error(error);
     return throwError(error);
+  }
+
+  sendReplyMail(sender):Observable<any> {
+    return this.http.post<any>(this.url, sender);
   }
 
 }

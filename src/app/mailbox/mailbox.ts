@@ -5,3 +5,8 @@ export class Mailbox {
     senderMessage: String;
     sentAt: Date;
 }
+export class Email {
+    to: String;
+    subject: String;
+    message: String;
+}

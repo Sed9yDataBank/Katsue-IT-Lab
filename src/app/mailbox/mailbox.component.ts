@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MailService } from './mailservice.service';
-import { Mailbox } from './mailbox';
+import { Mailbox, Email } from './mailbox';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
@@ -15,6 +15,7 @@ export class MailboxComponent implements OnInit {
   showModal: boolean;
   replyForm: FormGroup;
   sent: boolean = false;
+  replyObject:Email;
 
   constructor(private service: MailService, private formBuilder: FormBuilder) { }
 
@@ -70,6 +71,19 @@ export class MailboxComponent implements OnInit {
       this.showModal = false;
       this.replyForm.reset();
     }
-   
-}
+  }
+
+  sendReply(form:FormGroup){
+
+    console.log("Your Reply Mail Has Been Sent Sent ",this.replyForm);
+    this.replyObject=new Email()
+    this.replyObject.to=this.replyForm.value["email"];
+    this.replyObject.subject=this.replyForm.value["subject"];
+    this.replyObject.message=this.replyForm.value["message"];
+  
+    console.log("Email ", this.replyObject)
+    this.service.sendReplyMail(this.replyObject).subscribe(data=>{
+  
+    })
+   }
 }
