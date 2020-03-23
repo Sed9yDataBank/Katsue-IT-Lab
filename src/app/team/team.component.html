@@ -108,6 +108,16 @@ In a fast-paced environment like production, the Supervisor is an integral part 
 <h1 style="text-align: center;padding-bottom: 25px;padding-top: 35px;">Meet Our Lovley Team Members ❤ ❤ </h1>
 <ngb-carousel *ngIf="images" style="width: 40%;right: 200px;left: 100px;">
  
+  <ng-template ngbSlide *ngFor="let staffupload of allStaffUploads">
+    <div class="picsum-img-wrapper">
+      <img src="{{staffupload.imagePath}}" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
+    </div>
+    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
+      <h3>{{staffupload.staffFullName}}</h3>
+      <p>{{staffupload.staffPosition}} .</p><br><br><br>
+    </div>
+  </ng-template>
+  <!--Samples On How Data Should Be Fetched When Server Is Running, No APIs Controles Over The Team Members Info (POST, UPDATE, DELETE), Only GET Method-->
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
       <img src="assets/Team/Clara.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
@@ -128,42 +138,6 @@ In a fast-paced environment like production, the Supervisor is an integral part 
   </ng-template>
   <ng-template ngbSlide>
     <div class="picsum-img-wrapper">
-      <img src="assets/Team/Sadik.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Sadik</h3>
-      <p>Robotic Software Engineer, Tech Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Marlyn.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Marlyn</h3>
-      <p>Penetration Tester, Efficeny Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Fred.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Fred</h3>
-      <p>Artifical Intelligence Engineer, Tech Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Damen.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Damen</h3>
-      <p>Robotic Mechanical Engineer, Tech Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
       <img src="assets/Team/Sasuke.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
     </div>
     <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
@@ -171,61 +145,6 @@ In a fast-paced environment like production, the Supervisor is an integral part 
       <p>Sales Manager, Marketing Devision.</p><br><br><br>
     </div>
   </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Arica.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Arica</h3>
-      <p>DevOps Consultant, Tech Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Jack.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Dann</h3>
-      <p>Technical Manager, CEO.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Marten.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Nethan</h3>
-      <p>Administrator, CEO.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Amber.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Amber</h3>
-      <p>Software Engineer, Efficeny Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Bob.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Bob</h3>
-      <p>Cloud Engineer, Network Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-  <ng-template ngbSlide>
-    <div class="picsum-img-wrapper">
-      <img src="assets/Team/Jeff.jpg" alt="Random second slide" style="max-width: 55%;border-radius: 50%;">
-    </div>
-    <div class="carousel-caption" style="margin-left: 260px; width: 200px;margin-bottom: 55px;  display: block;position: relative;top: -220px;">
-      <h3>Jeff</h3>
-      <p>Big Data Engineer, Network Devision.</p><br><br><br>
-    </div>
-  </ng-template>
-
 </ngb-carousel>
 <div style="display: block;padding-left: 50px;padding-right: 80px;margin-bottom: 5rem;position: relative;top: -70px;font-weight: bolder;">
   <p>Katsue IT Lab Holds The Coolest Individuals Ever, Within Us You Will Have The Opprotunity To Intreact With Everyone, From The Tech Department Team To The Sale And Production Team ! As A Startup We Stick Together As A Team In A Multi Culture Working Environment. <br> What Are You Waiting For ? Apply Now And Join Us !</p>
