@@ -21,7 +21,7 @@ We Made A Survery About Which Sections Are The Most Ones Changed Over The Year I
 Before The HR Team Always Needed Assistance From The Tech Departmenet To Change Code Layout When Adding New Things, Which Is Frustrating Specially Styling The New Changes In Order To Not Lose Website Responsivity. Also It Is A Waste Of Time For The Devs Since They Have Other Main Tasks To Do, Specially That Katsue IT Lab Is New Start Up So Every Extra Effort Counts.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](./Katsue-IT-Lab/blob/master/Katsue Screenshots/Home.gif)
 
 ## Technologies
 
