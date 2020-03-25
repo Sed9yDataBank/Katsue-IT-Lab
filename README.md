@@ -45,9 +45,10 @@ For Project Managment
 Describe how to install / setup your local environement / add link to demo version.
 
 ## Code Examples
-Business Logic In Service Layer Of Adding Staff Information To Join Us Section And Admin Panel And Locally Saving Employee Photo In Chosen Folder And Saving The Data In DataBase :
+Business Logic In Service Layer Of Adding Staff Information To Join Us Section And Admin Panel And Locally Saving Employee Photo In Chosen Folder And Saving The Data In DataBase
 
-`public ResponseEntity<?> uploadStaff(Staff staff, String staffFullName,
+ ```java
+ public ResponseEntity<?> uploadStaff(Staff staff, String staffFullName,
                                          String staffPosition,
                                          MultipartFile file) throws IOException {
 
@@ -87,7 +88,8 @@ Business Logic In Service Layer Of Adding Staff Information To Join Us Section A
             image.setStaffPosition(staffRequest.getStaffPosition());
             return staffRepository.save(image);
         }).orElseThrow(() -> new ResourceNotFound("Staff Id " + staffId + " not found"));
-    }`
+    }
+    ``` 
 
 ## Features
 
