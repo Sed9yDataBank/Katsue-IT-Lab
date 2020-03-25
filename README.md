@@ -1,7 +1,15 @@
 # Katsue-IT-Lab
 ✎ Katsue IT Lab Is A Project Launched By Katsue Information Company, As A Business, Katsue Needs More "Persistent" Present Online.
 
-✎ Licence :
+# Table Of Contents
+## License
+## Current Statue Of The Project
+### Repository Structure
+#### Web Application Structure
+##### Used Technologies
+###### Contributers
+
+✎ License :
 Please Do Not Use Any Of The Code In This Repository, It Is Only Eligible For The Katsue IT Lab Team In Netherlands.
 
 ✎ Current Statue Of The Project :
