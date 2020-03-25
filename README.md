@@ -46,7 +46,48 @@ Describe how to install / setup your local environement / add link to demo versi
 
 ## Code Examples
 Show examples of usage:
-`put-your-code-here`
+`//Business Logic In Service Layer Of Adding Staff Information To Join Us Section And Admin Panel And Locally Saving Employee Photo In Chosen Folder And Saving The Data In DataBase
+public ResponseEntity<?> uploadStaff(Staff staff, String staffFullName,
+                                         String staffPosition,
+                                         MultipartFile file) throws IOException {
+
+        String imageName = file.getOriginalFilename();
+
+        //Save Image Locally In Project Folder And Change Path ---->
+        File saveImage = new File("/home/fianchetto/Documents/Katsue IT Lab/src/assets/TeamPhotos/" + imageName);
+        saveImage.createNewFile();
+        FileOutputStream fileOutputStream = new FileOutputStream(saveImage);
+        fileOutputStream.write(file.getBytes());
+        fileOutputStream.close();
+
+        String imagePath = Paths.get("/home/fianchetto/Documents/Katsue IT Lab/src/assets/TeamPhotos" + imageName)
+                .toString();
+        String imageType = file.getContentType();
+
+        long size = file.getSize();
+        String imageSize = String.valueOf(size);
+
+        //Lombok Error From Here When Setting And Getting
+        staff.setStaffFullName(staffFullName);
+        staff.setStaffPosition(staffPosition);
+        staff.setImageName(imageName);
+        staff.setImagePath(imagePath);
+        staff.setImageType(imageType);
+        staff.setImageSize(imageSize);
+
+        if (staff != null) {
+            staffRepository.save(staff);
+        }
+        return new ResponseEntity<>("Staff Has Been Created Successfully", HttpStatus.OK);
+    }
+
+    public Staff updateStaff(Long staffId, Staff staffRequest) {
+        return staffRepository.findById(staffId).map(image -> {
+            image.setStaffFullName(staffRequest.getStaffFullName());
+            image.setStaffPosition(staffRequest.getStaffPosition());
+            return staffRepository.save(image);
+        }).orElseThrow(() -> new ResourceNotFound("Staff Id " + staffId + " not found"));
+    }`
 
 ## Features
 
