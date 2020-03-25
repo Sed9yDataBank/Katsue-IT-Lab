@@ -89,7 +89,7 @@ Business Logic In Service Layer Of Adding Staff Information To Join Us Section A
             return staffRepository.save(image);
         }).orElseThrow(() -> new ResourceNotFound("Staff Id " + staffId + " not found"));
     }
-    ``` 
+ ``` 
 
 ## Features
 
