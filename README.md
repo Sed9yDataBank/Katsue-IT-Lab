@@ -101,6 +101,38 @@ Business Logic In Service Layer Of Adding Staff Information To Join Us Section A
     }
  ``` 
 
+```typescript
+//Staff Service
+  createStaff(staffUploads: StaffUploads): Observable<number> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<StaffUploads>(this.url, staffUploads, {
+            headers: httpHeaders,
+            observe: 'response'
+        }
+        ).pipe(
+          map(res => res.status),
+          catchError(this.handleError)
+      );
+  }
+  
+  //Staff Componenet 
+    submitForm() {
+    console.log(this.photosForm.value)
+    let formData: any = new FormData();
+    formData.append("staffFullName", this.photosForm.get('staffFullName').value);
+    formData.append("staffPosition", this.photosForm.get('staffPosition').value);
+    formData.append("image", this.photosForm.get('image').value);
+
+    this.baseservice.createStaff(formData).subscribe(response => {
+      console.log(response);
+      this.getAllStaff();
+    } ,
+      error => console.log(error)
+    );
+  }
+ ```
 ## Features
 
 * Functional Admin Panel With Login Authentication, Content Managment And APIs Documentation
