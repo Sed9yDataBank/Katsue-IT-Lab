@@ -1,6 +1,6 @@
 package com.katsueitlab.katsueserver.contact.model;
 
-import com.katsueitlab.katsueserver.models.audits.MessageAuditModel;
+import com.katsueitlab.katsueserver.contact.model.audits.MessageAuditModel;
 import lombok.Data;
 
 import javax.persistence.*;

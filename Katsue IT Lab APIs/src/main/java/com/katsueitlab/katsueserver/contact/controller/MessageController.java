@@ -1,6 +1,7 @@
 package com.katsueitlab.katsueserver.contact.controller;
 
-import com.katsueitlab.katsueserver.services.MessageService;
+import com.katsueitlab.katsueserver.contact.model.Message;
+import com.katsueitlab.katsueserver.contact.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

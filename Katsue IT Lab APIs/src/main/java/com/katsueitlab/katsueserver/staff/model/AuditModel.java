@@ -1,4 +1,4 @@
-package com.katsueitlab.katsueserver.staff.model.audits;
+package com.katsueitlab.katsueserver.staff.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.util.Date;
         allowGetters = true
 )
 @Data
-public abstract class StaffAuditModel implements Serializable {
+public abstract class AuditModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "added_at", nullable = false, updatable = false)
     @CreatedDate

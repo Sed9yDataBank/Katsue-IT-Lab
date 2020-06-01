@@ -1,19 +1,22 @@
 package com.katsueitlab.katsueserver.staff.model;
 
-import com.katsueitlab.katsueserver.models.audits.StaffAuditModel;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Staff_Info")
 @Data
-public class Staff extends StaffAuditModel {
+public class Staff extends AuditModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @Size(max = 100)
     private String staffFullName;
@@ -24,7 +27,7 @@ public class Staff extends StaffAuditModel {
     //Staff Images
     private String imageName;
     @Size(max = 100)
-    private String imagePath;
+    private String imagePath; // S3 key
     @Size(max = 100)
     private String imageType;
     @Size(max = 100)
@@ -32,11 +35,12 @@ public class Staff extends StaffAuditModel {
 
     //Getters And Setters Needed For Business Logic In Service Layer
 
-    public Long getId() {
+
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -64,8 +68,8 @@ public class Staff extends StaffAuditModel {
         this.imageName = imageName;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public Optional<String> getImagePath() {
+        return Optional.ofNullable(imagePath);
     }
 
     public void setImagePath(String imagePath) {
@@ -86,5 +90,24 @@ public class Staff extends StaffAuditModel {
 
     public void setImageSize(String imageSize) {
         this.imageSize = imageSize;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Staff staff = (Staff) o;
+        return Objects.equals(id, staff.id) &&
+                Objects.equals(staffFullName, staff.staffFullName) &&
+                Objects.equals(staffPosition, staff.staffPosition) &&
+                Objects.equals(imageName, staff.imageName) &&
+                Objects.equals(imagePath, staff.imagePath) &&
+                Objects.equals(imageType, staff.imageType) &&
+                Objects.equals(imageSize, staff.imageSize);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, staffFullName, staffPosition, imageName, imagePath, imageType, imageSize);
     }
 }

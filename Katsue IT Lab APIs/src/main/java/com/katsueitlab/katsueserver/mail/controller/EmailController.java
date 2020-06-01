@@ -1,7 +1,6 @@
 package com.katsueitlab.katsueserver.mail.controller;
 
-import com.katsueitlab.katsueserver.mail.model.Email;
-import com.katsueitlab.katsueserver.mail.model.Result;
+import com.katsueitlab.katsueserver.mail.model.KatsueEmail;
 import com.katsueitlab.katsueserver.mail.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,8 @@ public class EmailController {
     public EmailService emailService;
 
     @PostMapping("/katsuereply")
-    public Result sendEmailReply(@RequestBody Email email) {
-        return emailService.sendEmail(email);
+    public String index(@RequestBody KatsueEmail email) {
+        String response = emailService.sendMail(email);
+        return response;
     }
 }

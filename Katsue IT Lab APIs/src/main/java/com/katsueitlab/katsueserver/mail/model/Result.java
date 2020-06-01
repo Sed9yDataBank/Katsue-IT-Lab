@@ -1,4 +1,5 @@
-package com.katsueitlab.katsueserver.mail.model;
+/*Not Useful Anymore, Moving From GmailAPI To SendGridAPI<Unlimited Used Much Better
+package com.katsue.gmailreplyapi.model;
 
 public class Result {
 
@@ -36,4 +37,4 @@ public class Result {
                 ", Note='" + note + '\'' +
                 '}';
     }
-}
+}*/

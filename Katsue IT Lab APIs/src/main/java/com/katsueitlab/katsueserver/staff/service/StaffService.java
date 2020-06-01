@@ -1,6 +1,33 @@
 package com.katsueitlab.katsueserver.staff.service;
 
-import com.katsueitlab.katsueserver.exceptions.ResourceNotFound;
+import com.katsueitlab.katsueserver.staff.model.Staff;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.UUID;
+
+public interface StaffService {
+
+    public Page<Staff> getAllUploads(Pageable pageable);
+
+    void uploadStaff(Staff user, String staffFullName, String staffPosition, MultipartFile file);
+
+    byte[] downloadStaffImage(UUID id);
+
+    Staff updateStaff(UUID staffId, Staff staffRequest);
+
+    ResponseEntity<?> deleteStaff(UUID staffId);
+}
+
+//Old Unused Code, Moving To Production Environment
+
+/*package com.katsue.staffInfo.service;
+
+import com.katsue.staffInfo.exception.ResourceNotFound;
+import com.katsue.staffInfo.model.Staff;
+import com.katsue.staffInfo.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -72,4 +99,4 @@ public class StaffService {
             return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ResourceNotFound("Staff Id " + staffId + " not found"));
     }
-}
+}*/

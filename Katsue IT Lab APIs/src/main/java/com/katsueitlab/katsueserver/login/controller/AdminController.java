@@ -19,6 +19,6 @@ public class AdminController {
     @RequestMapping("/salute")
     public Salute salute(@RequestParam (value = "username", defaultValue = "admin") String name) {
 
-        return new Salute(count.incrementAndGet(), String.format(auto, name));
+        return new Salute (count.incrementAndGet(), String.format(auto, name));
     }
 }
