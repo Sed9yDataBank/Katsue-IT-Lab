@@ -21,7 +21,17 @@ We Made A Survery About Which Sections Are The Most Ones Changed Over The Year I
 Before The HR Team Always Needed Assistance From The Tech Departmenet To Change Code Layout When Adding New Things, Which Is Frustrating Specially Styling The New Changes In Order To Not Lose Website Responsivity. Also It Is A Waste Of Time For The Devs Since They Have Other Main Tasks To Do, Specially That Katsue IT Lab Is New Start Up So Every Extra Effort Counts.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+
+![Katsue Home Page](https://github.com/Sed9yDataBank/Katsue-IT-Lab/blob/master/Katsue%20Screenshots/Home.gif)
+
+![Katsue Join Us Page](https://github.com/Sed9yDataBank/Katsue-IT-Lab/blob/master/Katsue%20Screenshots/JoinUs.gif)
+
+![Katsue Login Page](https://github.com/Sed9yDataBank/Katsue-IT-Lab/blob/master/Katsue%20Screenshots/LoginAuthentication.gif)
+
+![Katsue Admin Panel/Manage Employees](https://github.com/Sed9yDataBank/Katsue-IT-Lab/blob/master/Katsue%20Screenshots/AddStaff.gif)
+
+![Katsue Admin Panel/Mail Box](https://github.com/Sed9yDataBank/Katsue-IT-Lab/blob/master/Katsue%20Screenshots/MailBox.gif)
+
 
 ## Technologies
 
@@ -68,7 +78,7 @@ Business Logic In Service Layer Of Adding Staff Information To Join Us Section A
         long size = file.getSize();
         String imageSize = String.valueOf(size);
 
-        //Lombok Error From Here When Setting And Getting
+        //Generate Getters And Setters In Model, Lombok Annotations Are Not Allowed
         staff.setStaffFullName(staffFullName);
         staff.setStaffPosition(staffPosition);
         staff.setImageName(imageName);
@@ -91,6 +101,38 @@ Business Logic In Service Layer Of Adding Staff Information To Join Us Section A
     }
  ``` 
 
+```typescript
+//Staff Service
+  createStaff(staffUploads: StaffUploads): Observable<number> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<StaffUploads>(this.url, staffUploads, {
+            headers: httpHeaders,
+            observe: 'response'
+        }
+        ).pipe(
+          map(res => res.status),
+          catchError(this.handleError)
+      );
+  }
+  
+  //Staff Componenet 
+    submitForm() {
+    console.log(this.photosForm.value)
+    let formData: any = new FormData();
+    formData.append("staffFullName", this.photosForm.get('staffFullName').value);
+    formData.append("staffPosition", this.photosForm.get('staffPosition').value);
+    formData.append("image", this.photosForm.get('image').value);
+
+    this.baseservice.createStaff(formData).subscribe(response => {
+      console.log(response);
+      this.getAllStaff();
+    } ,
+      error => console.log(error)
+    );
+  }
+ ```
 ## Features
 
 * Functional Admin Panel With Login Authentication, Content Managment And APIs Documentation
