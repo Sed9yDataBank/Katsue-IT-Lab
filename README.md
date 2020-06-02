@@ -1,5 +1,5 @@
 # Katsue IT Lab Web Application
->  Katsue IT Lab Is A Project Launched By Katsue Information Company, As A Business, Katsue Needs More "Persistent" Present Online.
+>  Katsue It Lab is a project launched for Katsue company specialized in information technology, as a business company, Katsue needed more "persistent" present online.
 
 ## Table of contents
 * [General info](#general-info)
@@ -12,14 +12,13 @@
 * [Contact](#contact)
 
 ## General info
-For Katsue IT Lab As A startup It is important For Customers To Know That They Can Reach Katsue Easily. Having This Information Online Helps Potential Customers Reach Katsue Offices.
-With This Web Application Katsue IT Lab Have The Ability To Promote And Advertise The Startup In An Organic, Professional Manner. 
-Katsue IT Lab Is Backed Up With A Functional Admin Panel, This Was Created In Order To Fight Back Struggles Of The Human Resource Department, Who Is Mainly Responsible About Adding, Changing Content In The Website.
+For Katsue IT Lab as a startup it is important for customers to know that they can reach Katsue easily. Having this information online helps potential customers to reach Katsue offices.
+With this web application Katsue It Lab have the ability to promote and advertise the startup in an fast, professional manner. 
+The company website is backed up with a functional admin panel, this was created in order to ease struggles of the human resource department, who is mainly responsible for adding, changing content in the website, interacting with customers, potential employees and random visitors questions.
 
-We Made A Survery About Which Sections Are The Most Ones Changed Over The Year In The Website, And The Result Is, The Informative Section About Employees In Join Us Page, And The Way HR Manages Recieved Messages From The Contact Form In Home Page.
+Before starting this project the HR team always needed assistance from the tech departmenet when updating content in the company website by digging in the source code., which is frustrating specially styling the new changes in order to not lose website responsivity. Also it is a waste of time for the developers since they already have  other main tasks to do, specially that Katsue is new start up so every extra minute of work counts.
 
-Before The HR Team Always Needed Assistance From The Tech Departmenet To Change Code Layout When Adding New Things, Which Is Frustrating Specially Styling The New Changes In Order To Not Lose Website Responsivity. Also It Is A Waste Of Time For The Devs Since They Have Other Main Tasks To Do, Specially That Katsue IT Lab Is New Start Up So Every Extra Effort Counts.
-
+With this web application hr team will be able to save appromoxatily 2 hours a day, lower their frustration and increasing everyone concentration on the startup products. Also audience and Ktasue global popilarity will peak to 28% by the end of the year, and could increase more when using a good digital marketing plan.
 ## Screenshots
 
 ![Katsue Home Page](https://github.com/Sed9yDataBank/Katsue-IT-Lab/blob/master/Katsue%20Screenshots/Home.gif)
@@ -36,112 +35,126 @@ Before The HR Team Always Needed Assistance From The Tech Departmenet To Change 
 ## Technologies
 
 For Frontend
-* Angular ( For Non-Technical Viewers Of This Project, HTML, CSS, JavaScript, TypeScript )
+* Angular 
 * Bootstrap
 * NGX Bootstrap
 
 For Backend
-* SpringBoot ( For Non-Technical Viewers Of This Project, J2EE Java )
+* SpringBoot
 * JPA 
 * Hibernate
 * PostgreSQL
 * Postman
+* AWS
+* SendGrid API
 
 For Project Managment
 * Trello
 * nTask
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+
+You can clone this repository and setup the frontend, server and provide your own postgres credentials, aws and sendgrid api tokens.
+
+Why no live demo ? deploying this project is going to cost money for a good hosting service.
 
 ## Code Examples
-Business Logic In Service Layer Of Adding Staff Information To Join Us Section And Admin Panel And Locally Saving Employee Photo In Chosen Folder And Saving The Data In DataBase
+Business logic in service layer of adding staff information to join us section and admin panel, we save the pictures in buckets using AWS and save every photo url in our database.
 
  ```java
- public ResponseEntity<?> uploadStaff(Staff staff, String staffFullName,
-                                         String staffPosition,
-                                         MultipartFile file) throws IOException {
 
-        String imageName = file.getOriginalFilename();
+        @Override
+        @Transactional
+        public void uploadStaff(Staff user,
+                            String staffFullName,
+                            String staffPosition,
+                            MultipartFile file) {
+        // 1. Check if image is not empty
+        isFileEmpty(file);
+        // 2. If file is an image
+        isImage(file);
 
-        //Save Image Locally In Project Folder And Change Path ---->
-        File saveImage = new File("/home/fianchetto/Documents/Katsue IT Lab/src/assets/TeamPhotos/" + imageName);
-        saveImage.createNewFile();
-        FileOutputStream fileOutputStream = new FileOutputStream(saveImage);
-        fileOutputStream.write(file.getBytes());
-        fileOutputStream.close();
+        // 3. The user exists in our database
+        //Staff user = getStaffImageOrThrow(id);
 
-        String imagePath = Paths.get("/home/fianchetto/Documents/Katsue IT Lab/src/assets/TeamPhotos" + imageName)
-                .toString();
-        String imageType = file.getContentType();
+        // 4. Grab some metadata from file if any
+        Map<String, String> metadata = extractMetadata(file);
 
-        long size = file.getSize();
-        String imageSize = String.valueOf(size);
+        // 5. Store the image in s3 and update database (userProfileImageLink) with s3 image link
+        String path = String.format("%s/%s", BucketName.STAFF_FACE.getBucketName(), user.getId());
+        String filename = String.format("%s-%s", file.getOriginalFilename(), UUID.randomUUID());
 
-        //Generate Getters And Setters In Model, Lombok Annotations Are Not Allowed
-        staff.setStaffFullName(staffFullName);
-        staff.setStaffPosition(staffPosition);
-        staff.setImageName(imageName);
-        staff.setImagePath(imagePath);
-        staff.setImageType(imageType);
-        staff.setImageSize(imageSize);
-
-        if (staff != null) {
-            staffRepository.save(staff);
+        try {
+            fileStore.save(path, filename, Optional.of(metadata), file.getInputStream());
+            user.setImagePath(path);
+            user.setStaffFullName(staffFullName);
+            user.setStaffPosition(staffPosition);
+            if (user != null) {
+                staffRepository.save(user);
+            }
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
-        return new ResponseEntity<>("Staff Has Been Created Successfully", HttpStatus.OK);
-    }
 
-    public Staff updateStaff(Long staffId, Staff staffRequest) {
-        return staffRepository.findById(staffId).map(image -> {
-            image.setStaffFullName(staffRequest.getStaffFullName());
-            image.setStaffPosition(staffRequest.getStaffPosition());
-            return staffRepository.save(image);
-        }).orElseThrow(() -> new ResourceNotFound("Staff Id " + staffId + " not found"));
-    }
+        }
+
+        @Override
+        @Transactional
+        public byte[] downloadStaffImage(UUID id) {
+            Staff user = getStaffImageOrThrow(id);
+
+            String path = String.format("%s/%s",
+                    BucketName.STAFF_FACE.getBucketName(),
+                    user.getId());
+
+            return user.getImagePath()
+                    .map(key -> fileStore.download(path, key))
+                    .orElse(new byte[0]);
+
+        }
  ``` 
 
 ```typescript
-//Staff Service
-  createStaff(staffUploads: StaffUploads): Observable<number> {
-    let httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-    return this.http.post<StaffUploads>(this.url, staffUploads, {
-            headers: httpHeaders,
-            observe: 'response'
-        }
-        ).pipe(
-          map(res => res.status),
-          catchError(this.handleError)
-      );
-  }
-  
-  //Staff Componenet 
-    submitForm() {
-    console.log(this.photosForm.value)
-    let formData: any = new FormData();
-    formData.append("staffFullName", this.photosForm.get('staffFullName').value);
-    formData.append("staffPosition", this.photosForm.get('staffPosition').value);
-    formData.append("image", this.photosForm.get('image').value);
+        //Staff Service
+        createStaff(staffUploads: StaffUploads): Observable<number> {
+            let httpHeaders = new HttpHeaders({
+              'Content-Type': 'application/json'
+            });
+            return this.http.post<StaffUploads>(this.url, staffUploads, {
+                    headers: httpHeaders,
+                    observe: 'response'
+                }
+                ).pipe(
+                  map(res => res.status),
+                  catchError(this.handleError)
+              );
+            }
+      
+        //Staff Componenet 
+            submitForm() {
+            console.log(this.photosForm.value)
+            let formData: any = new FormData();
+            formData.append("staffFullName", this.photosForm.get('staffFullName').value);
+            formData.append("staffPosition", this.photosForm.get('staffPosition').value);
+            formData.append("image", this.photosForm.get('image').value);
 
-    this.baseservice.createStaff(formData).subscribe(response => {
-      console.log(response);
-      this.getAllStaff();
-    } ,
-      error => console.log(error)
-    );
-  }
+            this.baseservice.createStaff(formData).subscribe(response => {
+              console.log(response);
+              this.getAllStaff();
+            } ,
+              error => console.log(error)
+            );
+          }
  ```
 ## Features
 
-* Functional Admin Panel With Login Authentication, Content Managment And APIs Documentation
-* Edit Team Members Section In Join Us Page Using Admin Panel
-* Control Recieved Messages From Users And Send Replies With Your Gmail From The Admin Panel
+* Functional admin panel with login authentication providing custom ip authentication provider, content managment across the web application and apis documentation.
+* edit team members section in join us page using admin panel.
+* Control recieved messages from users and send replies with your gmail from the admin panel using SendGrid services.
 
 To-Do List:
-* Shift Project To Testing Environement
-* Code A More Complex Login Authentication
+* Shift project to testing environement
+* Code a more complex login authentication
 
 ## Status
 Project is: _in progress_, Currentley In Testing, Quality Assurance Environment 
@@ -150,4 +163,4 @@ Project is: _in progress_, Currentley In Testing, Quality Assurance Environment
 Project Inspired By Dann Lenard, Katsue IT Lab CEO. Based On Building Online Presence For The Startup
 
 ## Contact
-Created by [@Sed9yDataBank](https://github.com/Sed9yDataBank) - Feel Free To Contact Me ! [benzidsedki@gmail.com]
+Created by [@Sed9yDataBank](https://github.com/Sed9yDataBank) - Feel Free To Contact Me : [ benzidsedki@gmail.com ]
